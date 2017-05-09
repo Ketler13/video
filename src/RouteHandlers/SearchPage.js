@@ -5,16 +5,15 @@ import '../App.css';
 import Search from '../components/Search'
 import VideoList from '../components/VideoList'
 
-class App extends Component {
+class SearchPage extends Component {
   render() {
     return (
-      <Provider store = {store}>
-        <div>
-          {this.props.children}
-        </div>
-      </Provider>
+      <div>
+        <Search />
+        <VideoList />
+      </div>
     );
   }
 }
 
-export default App;
+export default SearchPage;

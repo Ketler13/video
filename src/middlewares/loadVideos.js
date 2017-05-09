@@ -15,7 +15,6 @@ export default store => next => action => {
   })
   .then(response => {
     const vids = mapVideoResponse(response.data.items)
-    console.log(vids);
     next({type: action.type + SUCCESS, payload: {vids}})
   })
   .catch(error => {
