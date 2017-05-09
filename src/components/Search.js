@@ -12,11 +12,15 @@ class Search extends Component {
     this.props.setInputValue(ev.target.value)
   }
 
+  handleClick = ev => {
+    this.props.loadVideos(this.props.value)
+  }
+
   render() {
     return (
       <div>
         <input type = 'text' value = {this.props.value} onChange = {this.handleChange}/>
-        <button onClick = {this.props.loadVideos}>Search</button>
+        <button onClick = {this.handleClick}>Search</button>
       </div>
     )
   }
