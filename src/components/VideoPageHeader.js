@@ -27,7 +27,7 @@ class VideoPageHeader extends Component {
             placeholder="id"
             onChange={this.handleChange('vidId')}
           />
-          <Button bsStyle="primary">
+          <Button bsStyle='success'>
             <Link to={`/video/${this.props.vidId}`}>
               <p>Смотреть</p>
             </Link>

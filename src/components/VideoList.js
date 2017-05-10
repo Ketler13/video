@@ -17,13 +17,13 @@ const VideoList = ({vids, error, loading, loaded}) => {
 
   const videoList = vids.map(vid => {
     return (
-      <li key={vid.id}>
+      <li key={vid.id} className='video-list__item'>
         <Video vid={vid} />
       </li>
     )
   })
   return (
-    <ul>{videoList}</ul>
+    <ul className='video-list'>{videoList}</ul>
   )
 }
 

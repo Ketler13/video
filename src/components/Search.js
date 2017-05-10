@@ -26,34 +26,31 @@ class Search extends Component {
   render() {
     const {loading, loaded, phrase} = this.props
     return (
-      <div>
-        <p>Поиск:</p>
-        <Form inline>
-          <FormControl
-            type="text"
-            value={phrase}
-            placeholder="Enter text"
-            onChange={this.handleChange('phrase')}
-          />
+      <Form inline>
+        <FormControl
+          type='text'
+          value={phrase}
+          placeholder='Дональд Трамп'
+          onChange={this.handleChange('phrase')}
+        />
+        <Button
+          bsStyle='success'
+          disabled={loading}
+          onClick={!loading ? this.handleClick : null}
+        >
+          {loading ? 'Загрузка' : 'Поиск'}
+        </Button>
+        {
+          loaded ?
           <Button
-            bsStyle="primary"
-            disabled={loading}
-            onClick={!loading ? this.handleClick : null}
+            bsStyle='danger'
+            onClick={this.handleClear}
           >
-            {loading ? 'Загрузка' : 'Поиск'}
-          </Button>
-          {
-            loaded ?
-            <Button
-              bsStyle="danger"
-              onClick={this.handleClear}
-            >
-              {'Очистить'}
-            </Button> :
-            null
-          }
-        </Form>
-      </div>
+            {'Очистить'}
+          </Button> :
+          null
+        }
+      </Form>
     )
   }
 }

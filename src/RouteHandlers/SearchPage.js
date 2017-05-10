@@ -7,6 +7,7 @@ class SearchPage extends Component {
     const style = {
       maxWidth: '960px',
       margin: '0 auto',
+      marginTop: '20px',
     }
     return (
       <div style={style}>

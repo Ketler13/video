@@ -8,7 +8,7 @@ const Video = ({vid}) => {
       <Link to={`/video/${vid.id}`}>
         <p>{vid.title}</p>
       </Link>
-      <img src={vid.img} alt='Poster'/>
+      <img src={vid.img} alt='Poster' className='img-poster'/>
     </div>
   )
 }
