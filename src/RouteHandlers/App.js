@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div style={style.paper}>
-          <h1>YOUTEN</h1>
+          <h1>YOU<span className='logo-red-part'>TEN</span></h1>
           <h2>10 лучших роликов</h2>
           {this.props.children}
         </div>

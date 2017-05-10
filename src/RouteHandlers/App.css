@@ -2,7 +2,6 @@ h1 {
   font-size: 40px;
   font-family: 'Droid Serif', serif;
   padding-top: 20px;
-  letter-spacing: 10px;
 }
 
 h2 {
@@ -37,4 +36,11 @@ a:hover {
 
 .embededVideo {
   margin-top: 20px;
+}
+
+.logo-red-part {
+  background-color: red;
+  color: #fff;
+  padding: 0 10px;
+  border-radius: 10px;
 }
