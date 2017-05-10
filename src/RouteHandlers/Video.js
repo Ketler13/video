@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Video = (props) => {
-  const src = `https://www.youtube.com/embed/${props.params.id}?autoplay=1`
+  const src = `https://www.youtube.com/embed/${props.params.id}`
   return (
     <div>
       <iframe

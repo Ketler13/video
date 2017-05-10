@@ -12,7 +12,7 @@ const VideoList = ({vids, error, loading, loaded}) => {
   const vidsAreLoading = !!loading
   if (vidsAreLoading) return <Loader/>
 
-  const loadingFailed = !!error && !loading && !!loaded
+  const loadingFailed = !!error && !loading && !loaded && !vids
   if (loadingFailed) return <LoadingFailed/>
 
   const videoList = vids.map(vid => {

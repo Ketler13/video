@@ -30,7 +30,6 @@ class Search extends Component {
         <FormControl
           type='text'
           value={phrase}
-          placeholder='Дональд Трамп'
           onChange={this.handleChange('phrase')}
         />
         <Button
