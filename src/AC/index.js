@@ -1,4 +1,4 @@
-import { LOAD_VIDEOS, SET_INPUT_VALUE } from '../constants'
+import { LOAD_VIDEOS, SET_INPUT_VALUE, CLEAR_RESULTS } from '../constants'
 
 export const loadVideos = phrase => {
   return {
@@ -9,11 +9,18 @@ export const loadVideos = phrase => {
   }
 }
 
-export const setInputValue = value => {
+export const setInputValue = (field, value) => {
   return {
     type: SET_INPUT_VALUE,
     payload: {
+      field,
       value
     }
+  }
+}
+
+export const clearResults = () => {
+  return {
+    type: CLEAR_RESULTS
   }
 }

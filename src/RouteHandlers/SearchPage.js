@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
-import store from '../store'
-import { Provider } from 'react-redux'
-import '../App.css';
+import React, {Component} from 'react';
 import Search from '../components/Search'
 import VideoList from '../components/VideoList'
 
 class SearchPage extends Component {
   render() {
+    const style = {
+      maxWidth: '960px',
+      margin: '0 auto',
+    }
     return (
-      <div>
+      <div style={style}>
         <Search />
         <VideoList />
       </div>

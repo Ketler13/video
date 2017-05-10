@@ -1,18 +1,18 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
+import VideoPageHeader from '../components/VideoPageHeader'
 
-const VideoPage = (props) => {
-  console.log(props);
+const VideoPage = ({video}) => {
   return (
     <div>
-      <p>videos</p>
-      {props.video}
+      <VideoPageHeader/>
+      {video}
     </div>
   )
 }
 
 VideoPage.propTypes = {
-
+  video: PropTypes.object
 }
 
 export default VideoPage

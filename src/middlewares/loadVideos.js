@@ -8,7 +8,7 @@ export default store => next => action => {
   const base = 'https://www.googleapis.com/youtube/v3/search?'
   const key = 'AIzaSyCmn452SXgGyHGz07KS4Fj775zoc2ph3S0'
   const phrase = action.payload.phrase
-  const url = `${base}order=rating&part=snippet&q=${phrase}&maxResults=10&key=${key}`
+  const url = `${base}part=snippet&order=rating&type=video&q=${phrase}&maxResults=10&key=${key}`
   axios({
     method: 'get',
     url

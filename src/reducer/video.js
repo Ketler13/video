@@ -1,11 +1,14 @@
-import { LOAD_VIDEOS, SUCCESS, FAIL, START, SET_INPUT_VALUE } from '../constants'
+import {
+         LOAD_VIDEOS, SUCCESS, FAIL, START, SET_INPUT_VALUE, CLEAR_RESULTS
+       } from '../constants'
 
 const defaultState = {
   vids: null,
   error: null,
   loading: false,
   loaded: false,
-  inputValue: ''
+  phrase: '',
+  vidId: ''
 }
 
 export default (state = defaultState, action) => {
@@ -15,7 +18,7 @@ export default (state = defaultState, action) => {
     case SET_INPUT_VALUE:
       return {
         ...state,
-        inputValue: payload.value
+        [payload.field]: payload.value
       }
 
     case LOAD_VIDEOS + START:
@@ -43,6 +46,9 @@ export default (state = defaultState, action) => {
         loaded: false,
         error
       }
+
+    case CLEAR_RESULTS:
+      return defaultState
 
     default:
       return state

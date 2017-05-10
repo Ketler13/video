@@ -1,26 +1,58 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import { loadVideos, setInputValue } from '../AC'
+import { loadVideos, setInputValue, clearResults } from '../AC'
+import Form from 'react-bootstrap/lib/Form'
+import Button from 'react-bootstrap/lib/Button'
+import FormControl from 'react-bootstrap/lib/FormControl'
 
 class Search extends Component {
   static propTypes = {
-
+    value: PropTypes.string
   }
 
-  handleChange = ev => {
-    this.props.setInputValue(ev.target.value)
+  handleChange = field => ev => {
+    this.props.setInputValue(field, ev.target.value)
   }
 
   handleClick = ev => {
-    this.props.loadVideos(this.props.value)
+    this.props.phrase && this.props.loadVideos(this.props.phrase)
+  }
+
+  handleClear = ev => {
+    this.props.clearResults()
   }
 
   render() {
+    const {loading, loaded, phrase} = this.props
     return (
       <div>
-        <input type = 'text' value = {this.props.value} onChange = {this.handleChange}/>
-        <button onClick = {this.handleClick}>Search</button>
+        <p>Поиск:</p>
+        <Form inline>
+          <FormControl
+            type="text"
+            value={phrase}
+            placeholder="Enter text"
+            onChange={this.handleChange('phrase')}
+          />
+          <Button
+            bsStyle="primary"
+            disabled={loading}
+            onClick={!loading ? this.handleClick : null}
+          >
+            {loading ? 'Загрузка' : 'Поиск'}
+          </Button>
+          {
+            loaded ?
+            <Button
+              bsStyle="danger"
+              onClick={this.handleClear}
+            >
+              {'Очистить'}
+            </Button> :
+            null
+          }
+        </Form>
       </div>
     )
   }
@@ -28,6 +60,8 @@ class Search extends Component {
 
 export default connect(store => {
   return {
-    value: store.video.inputValue
+    phrase: store.video.phrase,
+    loading: store.video.loading,
+    loaded: store.video.loaded
   }
-}, {loadVideos, setInputValue})(Search)
+}, {loadVideos, setInputValue, clearResults})(Search)
